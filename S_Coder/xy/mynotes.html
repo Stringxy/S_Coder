@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;" />
+		<title>person</title>
+		<link rel="stylesheet" type="text/css" href="../css/mynotes.css" />
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="person">
+			<div class="header">
+				<img src="../img/mynotes_bg.jpg" />
+				<em id="title">My Notes</em>
+				<div class="cover"><img src="../img/mynotes_bg.jpg" /></div>
+				<div class="back"><img src="../img/person_back.png"></div>
+				<h1 class="h1">Rhaast</h1>
+				<div class="touxiang"><img src="../img/person_touxiang.png"></div>
+			</div>
+			<div class="main">
+				<!--<div class="note">
+			<div class="note_title">题目</div>
+			<div class="note_content">
+				testwords
+			</div>
+			<div class="note_bottom">评论：x条 </div>
+			<hr />
+		</div>-->
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				getMine();
+			})
+			var username;
+			//取得自己的笔记
+			function getMine() {
+				var now=new Date();
+				var userId = "10ed9f8b650d40d1896c9cc73cda47d6";
+				var mineUrl = "http://112.74.187.146:8080/studyapp/note/findByUserId/" + userId;
+				$.get(mineUrl, function(result) {
+					var str = "";
+					if (result.detail == null) {
+						str = "<h3>当前没有发表笔记哦！</h3>";
+					} else {
+						for (var i = 0; i < result.detail.length; i++) {
+							var title = result.detail[i].title;
+							var content = result.detail[i].content;
+							var commentNum = result.detail[i].commentNum;
+							username = result.detail[i].userName;
+							var createTime = new Date(result.detail[i].createTime);
+							var diffTime=(now-createTime)/(1000*60);
+							if(diffTime<=3){
+								createTime="刚刚";
+							}else if(diffTime>3&&diffTime<10){
+								createTime="三分钟前";
+							}else{
+								createTime=createTime.getFullYear()+"年"+(createTime.getMonth()+1)+"月"+createTime.getDate()+"日";
+							}
+							str += " <div class='note_title'>" + title + "</div><div class='note_content'>" + content + "</div><div class='note_bottom'>发布时间：" + createTime + "<span>评论：" + commentNum + "条</span></div><hr />";
+						}
+					}
+
+					$(".main").append(str);
+					$("h1").html(username);
+				})
+			}
+		</script>
+	</body>
+
+</html>

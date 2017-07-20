@@ -1,0 +1,26 @@
+{
+	"person.html": {
+		"resources": [
+			"css/new_file.css",
+			"img/person_sex.png",
+			"img/person_icons_question.png",
+			"img/person_touxiang.png",
+			"img/bg_01.jpg",
+			"img/person_icons_note.png",
+			"img/person_cover.jpg",
+			"img/bg_02.jpg",
+			"img/person_back.png",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"xy/mynotes.html"
+		]
+	},
+	"xy/mynotes.html": {
+		"resources": [
+			"css/mynotes.css",
+			"js/jquery-3.2.1.min.js",
+			"img/mynotes_bg.jpg"
+		]
+	}
+}

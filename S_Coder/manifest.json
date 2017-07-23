@@ -162,11 +162,11 @@
                     }
                 },
                 "android": {
-                    "mdpi": "", /*普通屏程序图标，分辨率：48x48*/
-                    "ldpi": "", /*大屏程序图标，分辨率：48x48*/
-                    "hdpi": "", /*高分屏程序图标，分辨率：72x72*/
-                    "xhdpi": "",/*720P高分屏程序图标，分辨率：96x96*/
-                    "xxhdpi": ""/*1080P 高分屏程序图标，分辨率：144x144*/
+                    "mdpi": "C:/Users/admin/Pictures/App_User_Group_256px_1163247_easyicon.net.png", /*普通屏程序图标，分辨率：48x48*/
+                    "ldpi": "C:/Users/admin/Pictures/App_User_Group_256px_1163247_easyicon.net.png", /*大屏程序图标，分辨率：48x48*/
+                    "hdpi": "C:/Users/admin/Pictures/App_User_Group_256px_1163247_easyicon.net.png", /*高分屏程序图标，分辨率：72x72*/
+                    "xhdpi": "C:/Users/admin/Pictures/App_User_Group_256px_1163247_easyicon.net.png",/*720P高分屏程序图标，分辨率：96x96*/
+                    "xxhdpi": "C:/Users/admin/Pictures/App_User_Group_256px_1163247_easyicon.net.png"/*1080P 高分屏程序图标，分辨率：144x144*/
                 }
             },
             "splashscreen": {
@@ -235,5 +235,8 @@
 				"fonts/NotoSansHans-Regular.otf"
 			]
 		}
-	}
+	},
+	"unpackage":[
+	  "fonts/NotoSansHans-Regular.otf"
+	]
 }

@@ -7,9 +7,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;" />
 		<title>person</title>
-		<link rel="stylesheet" type="text/css" href="../css/mynotes.css" />
+
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<link rel="stylesheet" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../css/noteDetail.css" />
+				<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="../js/mui.min.js" ></script>
-		<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../js/common.js" ></script>
+
 		<script type="text/javascript">
 		(function ($, doc, $$) {
                 $.init();
@@ -70,45 +75,43 @@
 	<body>
 		<div id="person">
 			<div class="header">
-				<img src="../img/mynotes_bg.jpg" />
-				<em id="title">My Notes</em>
-				<div class="cover"><img src="../img/mynotes_bg.jpg" /></div>
+				<img src="../img/detail_bg.jpg" />
+				<div class="cover"><img src="../img/detail_bg.jpg" /></div>
 				<div class="back"><img src="../img/person_back.png"></div>
-				<h1 class="h1">Rhaast</h1>
+				<h1 class="h1"></h1>
 				<div class="touxiang"><img src="../img/person_touxiang.png"></div>
 			</div>
 			<div class="main">
-				<!--<div class="note">
-			<div class="note_title">题目</div>
-			<div class="note_content">
-				testwords
+				<div class="note">
+					<div class="note_title"></div>
+					<div class="note_content">
+					
+					</div>
+					<div class="note_bottom"><span id="time"></span><span id="commentNum"></span> <hr /></div>
+					
+				</div>
+
 			</div>
-			<div class="note_bottom">评论：x条 </div>
-			<hr />
-		</div>-->
-			</div>
+							<div id="comments">
+					
+				</div>
+				<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">蓝色</button>
 		</div>
 		<script type="text/javascript">
+			var id;
+			var userId;
 			$(function() {
-				getMine();
+				id=getUrlParam('id');
+				getDetail();
 			})
-			var username;
 			//取得自己的笔记
-			function getMine() {
+			function getDetail(){
 				var now=new Date();
-				var userId = "10ed9f8b650d40d1896c9cc73cda47d6";
-				var mineUrl = "http://112.74.187.146:8080/studyapp/note/findByUserId/" + userId;
+				var mineUrl = "http://112.74.187.146:8080/studyapp/note/findById/" + id;
 				$.get(mineUrl, function(result) {
+					userId=result.detail.note.id;
 					var str = "";
-					if (result.detail == null) {
-						str = "<h3>当前没有发表笔记哦！</h3>";
-					} else {
-						for (var i = 0; i < result.detail.length; i++) {
-							var title = result.detail[i].title;
-							var content = result.detail[i].content;
-							var commentNum = result.detail[i].commentNum;
-							username = result.detail[i].userName;
-							var createTime = new Date(result.detail[i].createTime);
+					var createTime = new Date(result.detail.note.createTime);
 							var diffTime=(now-createTime)/(1000*60);
 							if(diffTime<=3){
 								createTime="刚刚";
@@ -117,37 +120,19 @@
 							}else{
 								createTime=createTime.getFullYear()+"年"+(createTime.getMonth()+1)+"月"+createTime.getDate()+"日";
 							}
-							str += " <a href='noteDetail.html?id="+result.detail[i].id+"'><div class='note_title'>" + title + "</div><div class='note_content'>" + content + "</div><div class='note_bottom'>发布时间：" + createTime + "<span>评论：" + commentNum + "条</span></div><hr /></a>";
-						}
+					$(".note_title").html(result.detail.note.title);
+					$(".note_content").html(result.detail.note.content);
+					$("#time").html("发布时间："+createTime);
+					$("#commentNum").html("评论："+result.detail.note.commentNum+"条");
+					$("h1").html(result.detail.note.userName);
+					
+					if(result.detail.comment.length>0){
+						
+					}else{
+						$("#comments").html("<h4>暂时没有评论哦！快来抢沙发~</h4>");
 					}
-
-					$(".main").append(str);
-					$("h1").html(username);
 				})
 			}
-			
-				mui.init();
-//			document.addEventListener('plusready', function() {
-//				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
-//
-//			});
-			mui('body').on('tap', 'a', function() {
-				var id = this.getAttribute('href');
-				var webview_style = {
-					popGesture: "close"
-				};
-				mui.openWindow({
-					id: id,
-					url: this.href,
-					styles: webview_style,
-					show: {
-						aniShow: true
-					},
-					waiting: {
-						autoShow: true
-					}
-				});
-			})
 		</script>
 	</body>
 

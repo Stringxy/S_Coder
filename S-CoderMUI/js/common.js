@@ -64,7 +64,7 @@ function getUrlParam (name) {
 
 function ifLogin(){
 	var  userId=localStorage.getItem("userId");
-				if(userId==null||userId==undefined){
+				if(userId==null||userId==undefined||userId==''){
 						mui.alert('请先登陆！', 'S_Coder', function() {
 								//var id = this.getAttribute('href');
 								var webview_style = {

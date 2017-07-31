@@ -385,12 +385,13 @@
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
 	<script>
-		mui.init({
-			swipeBack: true //启用右滑关闭功能
-		});
-
+//		mui.init({
+//			swipeBack: true //启用右滑关闭功能
+//		});
+	mui.plusReady(function() { 
+		ifLogin();
+	}); 
 		$(function() {
-			ifLogin();
 			getName();
 		})
 

@@ -64,31 +64,13 @@
 			});
 
 			$(function() {
+				ifLogin();
 				getMine();
 			})
 			var username;
 			//取得自己的笔记
 			function getMine() {
 				var nickName = localStorage.getItem("nickName");
-				if (nickName == null || nickName == undefined) {
-					mui.alert('请先登陆！', 'S_Coder', function() {
-						//var id = this.getAttribute('href');
-						var webview_style = {
-							popGesture: "close"
-						};
-						mui.openWindow({
-							id: "login",
-							url: "login.html",
-							styles: webview_style,
-							show: {
-								aniShow: true
-							},
-							waiting: {
-								autoShow: true
-							}
-						});
-					});
-				}
 				var score = localStorage.getItem("score");
 				var level = localStorage.getItem("level");
 				var portrait = localStorage.getItem("portrait");

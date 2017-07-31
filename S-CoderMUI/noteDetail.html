@@ -15,62 +15,7 @@
 		<script type="text/javascript" src="js/mui.min.js"></script>
 		<script type="text/javascript" src="js/common.js"></script>
 
-		<script type="text/javascript">
-			(function($, doc, $$) {
-				$.init();
-				$.ready(function() {
-					var cityPicker = new $.PopPicker({
-						layer: 2
-					});
 
-					$.ajax({
-						type: 'POST',
-						url: '@Url.Action("GetSelectList","Banji")',
-						data: '',
-						dataType: 'json',
-						success: function(data) {
-							cityPicker.setData(data);
-						},
-						error: function() {
-							alert('error');
-						}
-					});
-
-					var showCityPickerButton = doc.getElementById('showCityPicker');
-					var cityResult = doc.getElementById('cityResult');
-					var students = doc.getElementById('students');
-					showCityPickerButton.addEventListener('tap', function(event) {
-						cityPicker.show(function(items) {
-							cityResult.innerText = "" + items[0].text + "->" + items[1].text;
-							$$('#students').html('');
-							$.ajax({
-								type: 'POST',
-								url: '@Url.Action("GetSelectList","Student")',
-								data: {
-									banjiId: items[1].value
-								},
-								dataType: 'json',
-								success: function(data) {
-									console.log(data);
-									var str = '';
-									data.forEach(function(e) {
-										str += '<li class="mui-table-view-cell mui-checkbox mui-left"><input name="checkbox" type="checkbox" value="' + e.value + '">' + e.text + '</li>';
-									})
-									$$('#students').html(str);
-								},
-								error: function() {
-									alert('error');
-								}
-							});
-
-							//返回 false 可以阻止选择框的关闭
-							//return false;
-						});
-					}, false);
-
-				});
-			})(mui, document, jQuery);
-		</script>
 	</head>
 
 	<body>
@@ -98,7 +43,7 @@
 			<div id="comments">
 
 			</div>
-			<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">蓝色</button>
+			
 		</div>
 		<script type="text/javascript">
 			var id;
@@ -132,7 +77,7 @@
 					$(".note_content").html(result.detail.note.content);
 					$("#time").html("发布时间：" + createTime);
 					$("#commentNum").html("评论：" + result.detail.note.commentNum + "条");
-					$("h1").html(result.detail.note.userName);
+					
 
 					if (result.detail.comment.length > 0) {
 

@@ -90,15 +90,39 @@
 				padding-right: 10px;
 			}
 			
-			.mui-card-content{
-				height: 100px;
+			.mui-card-content {
+				height: 70px;
 				padding-left: 6%;
+			}
+			
+			.question-card {
+				background-color: rgb(219, 239, 222);
+			}
+			
+			a {
+				color: #757779;
+			}
+			
+			.mui-card-header {
+				font-size: 15px;
+			}
+			
+			.mui-card {
+				font-size: 12px;
+			}
+			
+			.mui-card-footer {
+				background-color: #eee;
+			}
+			
+			#pullrefresh {
+				height: 700px;
 			}
 		</style>
 	</head>
 
 	<body style="height: 100%;">
-		<nav class="mui-bar mui-bar-tab">
+		<!--<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#tabbar">
 				<span class="mui-icon "><img src="img/index_nc.png"></span>
 				<span class="mui-tab-label">首页</span>
@@ -112,274 +136,144 @@
 				<span class="mui-tab-label">通讯录</span>
 			</a>
 
-		</nav>
-		<div class="mui-content">
-			<div id="tabbar" class="mui-control-content mui-active">
-				<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
-					<!--侧滑菜单部分-->
-					<aside id="offCanvasSide" class="mui-off-canvas-left">
-						<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<div class="title">侧滑导航</div>
-								<div class="content">
+		</nav>-->
+		<!--<div class="mui-content">-->
+		<!--<div id="tabbar" class="mui-control-content mui-active">-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="title">侧滑导航</div>
+						<div class="content">
 
-									<div class="touxiang" style="width: 30%;padding-left: 5%;position: relative;"><img src="img/avatar0.jpg">
-										<span id="nickname" style="color: whitesmoke;position: absolute;right: -190%;z-index: 99;bottom: 5%;">Rhaast</span></div>
-									<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
-										<li class="mui-table-view-cell">
-											<a class="mui-navigate-right" href="person.html">
-												<img src="img/person.png" class="menuicon" />个人主页
-											</a>
-										</li>
-										<li class="mui-table-view-cell">
-											<a class="mui-navigate-right">
-												<img src="img/message.png" class="menuicon" />消息
-											</a>
-										</li>
-										<li class="mui-table-view-cell">
-											<a class="mui-navigate-right" href="login.html">
-												<img src="img/person_back.png" class="menuicon" />切换账号
-											</a>
-										</li>
-									</ul>
-								</div>
-								<!--<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>-->
-
-							</div>
+							<div class="touxiang" style="width: 30%;padding-left: 5%;position: relative;"><img src="img/avatar0.jpg">
+								<span id="nickname" style="color: whitesmoke;position: absolute;right: -190%;z-index: 99;bottom: 5%;">Rhaast</span></div>
+							<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right" href="person.html">
+										<img src="img/person.png" class="menuicon" />个人主页
+									</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right" href="addNote.html">
+										<img src="img/message.png" class="menuicon" />发笔记
+									</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right">
+										<img src="img/message.png" class="menuicon" />提问题
+									</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right">
+										<img src="img/message.png" class="menuicon" />消息
+									</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right" href="login.html">
+										<img src="img/person_back.png" class="menuicon" />切换账号
+									</a>
+								</li>
+							</ul>
 						</div>
-					</aside>
-					<!--主界面部分-->
-					<div class="mui-inner-wrap">
-
-						<header class="mui-bar mui-bar-nav">
-							<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"><img src="img/index_aside.png"></a>
-							<a class="mui-action-back mui-btn mui-btn-link mui-pull-right">关闭</a>
-							<h1 class="mui-title">Home</h1>
-						</header>
-						<div id="pullrefresh" class="mui-content">
-							<div class="mui-scroll">
-								<div id="slider" class="mui-slider">
-									<div class="mui-slider-group mui-slider-loop">
-										<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-										<div class="mui-slider-item mui-slider-item-duplicate">
-											<a href="#">
-												<img src="img/yuantiao.jpg">
-											</a>
-										</div>
-										<!-- 第一张 -->
-										<div class="mui-slider-item">
-											<a href="#">
-												<img src="img/shuijiao.jpg">
-											</a>
-										</div>
-										<!-- 第二张 -->
-										<div class="mui-slider-item">
-											<a href="#">
-												<img src="img/muwu.jpg">
-											</a>
-										</div>
-										<!-- 第三张 -->
-										<div class="mui-slider-item">
-											<a href="#">
-												<img src="img/cbd.jpg">
-											</a>
-										</div>
-										<!-- 第四张 -->
-										<div class="mui-slider-item">
-											<a href="#">
-												<img src="img/yuantiao.jpg">
-											</a>
-										</div>
-										<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
-										<div class="mui-slider-item mui-slider-item-duplicate">
-											<a href="#">
-												<img src="img/shuijiao.jpg">
-											</a>
-										</div>
-									</div>
-									<div class="mui-slider-indicator">
-										<div class="mui-indicator mui-active"></div>
-										<div class="mui-indicator"></div>
-										<div class="mui-indicator"></div>
-										<div class="mui-indicator"></div>
-									</div>
-
-								</div>
-								<!--数据列表-->
-								<div id="indexContent">
-									
-								</div>
-							</div>
-
-						</div>
+						<!--<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>-->
 
 					</div>
 				</div>
-			</div>
-			<div id="tabbar-with-chat" class="mui-control-content">
-				<div class="title">这是div模式选项卡中的第2个子页面，该页面展示一个消息列表</div>
+			</aside>
+			<!--主界面部分-->
 
-				<ul class="mui-table-view mui-table-view-chevron">
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 1</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 2</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 3</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 4</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 5</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 6</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 7</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 8</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 9</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 10</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 11</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 12</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 13</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 14</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 15</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 16</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 17</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 18</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 19</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="" class="mui-navigate-right">Item 20</a>
-					</li>
-				</ul>
+			<div class="mui-inner-wrap">
 
-			</div>
-			<div id="tabbar-with-contact" class="mui-control-content">
-				<div id="person">
-					<div class="header">
-						<img src="img/bg_01.jpg" />
-						<div class="cover"><img src="img/person_cover.jpg" /></div>
-						<div class="back"><img src="img/person_back.png"></div>
-						<h1 class="h1">Rhaast</h1>
-						<p>请尽情吩咐妲己，主人……</p>
-						<div class="touxiang"><img src="img/person_touxiang.png"></div>
-						<div class="job"><img src="img/person_sex.png">&nbsp;UI设计师</div>
-						<div class="message">
-							<div class="l">
-								<h2>ID：</h2>
-								<em>598652</em>
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"><img src="img/index_aside.png"></a>
+					<a class="mui-action-back mui-btn mui-btn-link mui-pull-right">关闭</a>
+					<h1 class="mui-title">Home</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div id="pullrefresh" class="mui-content">
+
+						<div id="slider" class="mui-slider">
+							<div class="mui-slider-group mui-slider-loop">
+								<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#">
+										<img src="img/yuantiao.jpg">
+									</a>
+								</div>
+								<!-- 第一张 -->
+								<div class="mui-slider-item">
+									<a href="#">
+										<img src="img/shuijiao.jpg">
+									</a>
+								</div>
+								<!-- 第二张 -->
+								<div class="mui-slider-item">
+									<a href="#">
+										<img src="img/muwu.jpg">
+									</a>
+								</div>
+								<!-- 第三张 -->
+								<div class="mui-slider-item">
+									<a href="#">
+										<img src="img/cbd.jpg">
+									</a>
+								</div>
+								<!-- 第四张 -->
+								<div class="mui-slider-item">
+									<a href="#">
+										<img src="img/yuantiao.jpg">
+									</a>
+								</div>
+								<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#">
+										<img src="img/shuijiao.jpg">
+									</a>
+								</div>
 							</div>
-							<div class="l">
-								<h2>得分</h2>
-								<em>4</em>
+							<div class="mui-slider-indicator">
+								<div class="mui-indicator mui-active"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
 							</div>
-							<div class="l">
-								<h2>等级</h2>
-								<em>1</em>
-							</div>
+
 						</div>
-					</div>
-					<div class="main">
-						<img src="img/bg_02.jpg">
-						<h2>我的日程</h2>
-						<div class="schedule">
-							<div class="r">
-								<img src="img/person_icons_note.png">
-								<p class="myNote">
-									<a href="mynotes.html">我的笔记</a>
-								</p>
-							</div>
-							<div class="r">
-								<img src="img/person_icons_question.png">
-								<p class="myNote">
-									<a href="https://www.baidu.com/">我的提问</a>
-								</p>
-							</div>
-						</div>
-					</div>
 
-				</div>
-				<div id="tabbar-with-map" class="mui-control-content">
-					<div class="title">这是div模式选项卡中的第4个子页面，该页面展示一个常见的设置示例.</div>
-					<ul class="mui-table-view">
-						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right">
-							新消息通知
-						</a>
-						</li>
-						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right">
-							隐私
-						</a>
-						</li>
-						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right">
-							通用
-						</a>
-						</li>
-					</ul>
-					<ul class="mui-table-view" style="margin-top: 25px;">
-						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right">
-							关于mui
-						</a>
-						</li>
-					</ul>
-					<ul class="mui-table-view" style="margin-top: 25px;">
-						<li class="mui-table-view-cell">
-							<a style="text-align: center;color: #FF3B30;">
-							退出登录
-						</a>
-						</li>
-					</ul>
+						<!--数据列表-->
+						<div id="indexContent">
+
+						</div>
+
+					</div>
+					<div class="mui-off-canvas-backdrop"></div>
 				</div>
 			</div>
 		</div>
+		<!--		</div>-->
+
+		<!--<div id="tabbar-with-chat" class="mui-control-content">
+			<div class="title">这是div模式选项卡中的第2个子页面，该页面展示一个消息列表</div>
+
+		</div>
+		<div id="tabbar-with-contact" class="mui-control-content">
+
+		</div>-->
+
 	</body>
-	
-	
+
 	<script type="text/javascript" src="js/mui.min.js"></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
 	<script>
-//		mui.init({
-//			swipeBack: true //启用右滑关闭功能
-//		});
-	mui.plusReady(function() { 
-		ifLogin();
-		getName();
-	}); 
+		mui.plusReady(function() {
+			ifLogin();
+			getName();
+		});
 		$(function() {
-			getIndexContent();
+			//getIndexContent();
 		})
 
 		function getName() {
@@ -388,39 +282,110 @@
 			var portrait = localStorage.getItem("portrait");
 			$(".touxiang img").attr("src", portrait);
 		}
-		
-		function getIndexContent(){
+
+		function getIndexContent() {
 			var now = new Date();
 
-				var mineUrl = "http://112.74.187.146:8080/studyapp/note/findAll";
-				$.get(mineUrl, function(result) {
-					var str = "";
-					if (result.detail == null) {
-						str = "<h3>当前没有发表笔记哦！</h3>";
-					} else {
-						for (var i = 0; i < result.detail.length; i++) {
-							var title = result.detail[i].title;
-							var content = result.detail[i].content;
-							var commentNum = result.detail[i].commentNum;
-							username = result.detail[i].userName;
-							var createTime = new Date(result.detail[i].createTime);
-							var diffTime = (now - createTime) / (1000 * 60);
-							if (diffTime <= 3) {
-								createTime = "刚刚";
-							} else if (diffTime > 3 && diffTime < 10) {
-								createTime = "三分钟前";
-							} else {
-								createTime = createTime.getFullYear() + "年" + (createTime.getMonth() + 1) + "月" + createTime.getDate() + "日";
-							}
-							str +=  '<div class="mui-card"><div class="mui-card-header">'+title+'<div class="mui-media-body"><a href="other.html?id='+result.detail[i].userId+'">'+username+'</a></div></div>';
-							str+='<div class="mui-card-content">'+content+'</div>';
-							str+='	<div class="mui-card-footer">发布时间：' + createTime + '<span>评论：' + commentNum + '条</span></div></div>';			
+			var mineUrl = "http://112.74.187.146:8080/studyapp/note/findAll";
+			$.get(mineUrl, function(result) {
+				var str = "";
+				if (result.detail == null) {
+					str = "<h3>当前没有发表笔记哦！</h3>";
+				} else {
+					for (var i = 0; i < result.detail.length; i++) {
+						var title = result.detail[i].title;
+						var content = result.detail[i].content;
+						var commentNum = result.detail[i].commentNum;
+						username = result.detail[i].userName;
+						var createTime = new Date(result.detail[i].createTime);
+						var diffTime = (now - createTime) / (1000 * 60);
+						var type = result.detail[i].type;
+						if (diffTime <= 3) {
+							createTime = "刚刚";
+						} else if (diffTime > 3 && diffTime < 10) {
+							createTime = "三分钟前";
+						} else {
+							createTime = createTime.getFullYear() + "年" + (createTime.getMonth() + 1) + "月" + createTime.getDate() + "日";
 						}
+						if (type == 0) {
+							str += '<div class="mui-card">';
+						} else {
+							str += '<div class="mui-card question-card">';
+						}
+						str += '<div class="mui-card-header"><a href="noteDetail.html?id=' + result.detail[i].id + '">' + title + '</a><div class="mui-media-body"><a href="other.html?id=' + result.detail[i].userId + '">' + username + '</a></div></div>';
+						str += '<div class="mui-card-content">' + content + '</div>';
+						str += '	<div class="mui-card-footer">发布时间：' + createTime + '<span>评论：' + commentNum + '条</span></div></div>';
 					}
+				}
 
-					$("#indexContent").append(str);
-				})
+				$("#indexContent").append(str);
+			})
 		}
+
+		mui.init({
+			pullRefresh: {
+				container: '#pullrefresh',
+				up: {
+					contentrefresh: '正在加载...',
+					callback: pullupRefresh
+				}
+			}
+		});
+		/**
+		 * 下拉刷新具体业务实现
+		 */
+		function pulldownRefresh() {
+			setTimeout(function() {
+				//					var table = document.body.querySelector('.mui-table-view');
+				//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+				//					for (var i = cells.length, len = i + 3; i < len; i++) {
+				//						var li = document.createElement('li');
+				//						li.className = 'mui-table-view-cell';
+				//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+				//						//下拉刷新，新纪录插到最前面；
+				//						table.insertBefore(li, table.firstChild);
+				//					}
+
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+			}, 1500);
+		}
+		var count = 0;
+		/**
+		 * 上拉加载具体业务实现
+		 */
+		function pullupRefresh() {
+			setTimeout(function() {
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+				getIndexContent();
+				//					var table = document.body.querySelector('.mui-table-view');
+				//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+				//					for (var i = cells.length, len = i + 20; i < len; i++) {
+				//						var li = document.createElement('li');
+				//						li.className = 'mui-table-view-cell';
+				//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+				//						table.appendChild(li);
+				//					}
+			}, 1500);
+		}
+		if (mui.os.plus) {
+			mui.plusReady(function() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				}, 1000);
+
+			});
+		} else {
+			mui.ready(function() {
+				mui('#pullrefresh').pullRefresh().pullupLoading();
+			});
+		}
+
+		(function($) {
+			$(".mui-scroll-wrapper").scroll({
+				//bounce: false,//滚动条是否有弹力默认是true
+				//indicators: false, //是否显示滚动条,默认是true
+			});
+		})(mui);
 	</script>
 
 </html>

@@ -61,7 +61,7 @@
 		</div>
 		<div class="mui-input-row">
 			<label>昵称</label>
-			<input id='nickname' type="text" class="mui-input-clear mui-input" placeholder="请确认密码">
+			<input id='nickname' type="text" class="mui-input-clear mui-input" placeholder="请确认昵称">
 		</div>
 		<div class="mui-input-row">
 			<label>邮箱</label>
@@ -177,7 +177,9 @@
 						"password": password,
 						"nickName":nickname,
 						"email": email,
-						"mobile": phone
+						"mobile": phone,
+						"level":1,
+						"score":0
 					};
 					
 				$.ajax({
@@ -194,8 +196,8 @@
 									popGesture: "close"
 								};
 								mui.openWindow({
-									id: "total",
-									url: "total.html",
+									id: "login",
+									url: "login.html",
 									styles: webview_style,
 									show: {
 										aniShow: true

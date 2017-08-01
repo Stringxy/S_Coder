@@ -131,6 +131,7 @@
 					},
 					function(result) {
 						if (result.result == 200) {
+							localStorage.clear();
 							//var id = this.getAttribute('href');
 							localStorage.setItem("userId", result.detail.id);
 							localStorage.setItem("password", password);

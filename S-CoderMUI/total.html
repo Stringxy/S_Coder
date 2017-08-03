@@ -3,215 +3,92 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Hello MUI</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="css/mui.min.css">
-
-		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="css/app.css" />
-		<link rel="stylesheet" type="text/css" href="css/new_file.css" />
-		<title>index</title>
-		<style>
-			.title {
-				margin: 20px 15px 10px;
-				color: #6d6d72;
-				font-size: 15px;
-			}
-			
-			.oa-contact-cell.mui-table .mui-table-cell {
-				padding: 11px 0;
-				vertical-align: middle;
-			}
-			
-			.oa-contact-cell {
-				position: relative;
-				margin: -11px 0;
-			}
-			
-			.oa-contact-avatar {
-				width: 75px;
-			}
-			
-			.oa-contact-avatar img {
-				border-radius: 50%;
-			}
-			
-			.oa-contact-content {
-				width: 100%;
-			}
-			
-			.oa-contact-name {
-				margin-right: 20px;
-			}
-			
-			.oa-contact-name,
-			oa-contact-position {
-				float: left;
-			}
-			
-			.mui-scroll-wrapper {
-				position: relative;
-				overflow: inherit;
-			}
-			
-			.mui-off-canvas-wrap {
-				overflow: inherit;
-			}
-			
-			.mui-scroll {
-				position: relative;
-			}
-			
-			.xoded {
-				height: 360px;
-			}
-			
-			.mui-icon-bars:before {
-				content: close-quote;
-			}
-			
-			.mui-pull-left {
-				width: 10%;
-			}
-			
-			.mui-bar-tab~.mui-content {
-				height: 100%;
-			}
-			
-			.mui-bar-tab .mui-tab-item.mui-active {
-				color: #5272f9;
-			}
-			
-			.menuicon {
-				width: 14%;
-				padding-right: 10px;
-			}
-			
-			.mui-card-content {
-				height: 70px;
-				padding-left: 6%;
-			}
-			
-			.question-card {
-				background-color: rgb(219, 239, 222);
-			}
-			
-			a {
-				color: #757779;
-			}
-			
-			.mui-card-header {
-				font-size: 15px;
-			}
-			
-			.mui-card {
-				font-size: 12px;
-			}
-			
-			.mui-card-footer {
-				background-color: #eee;
-			}
-			
-			#pullrefresh {
-				height: 700px;
-			}
-		</style>
+		<title></title>
 	</head>
 
-	<body style="height: 100%;">
-		<!--<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="#tabbar">
-				<span class="mui-icon "><img src="img/index_nc.png"></span>
-				<span class="mui-tab-label">首页</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-chat">
-				<span class="mui-icon mui-icon-email"></span>
-				<span class="mui-tab-label">消息</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-contact" name="c3">
-				<span class="mui-icon mui-icon-contact"></span>
-				<span class="mui-tab-label">通讯录</span>
-			</a>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<!--标准mui.css-->
+	<link rel="stylesheet" href="css/mui.min.css">
+	<!--App自定义的css-->
+<!--	<link rel="stylesheet" type="text/css" href="css/app.css" />-->
+	<link rel="stylesheet" href="css/total.css" />
 
-		</nav>-->
-		<!--<div class="mui-content">-->
-		<!--<div id="tabbar" class="mui-control-content mui-active">-->
-		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
-			<!--侧滑菜单部分-->
-			<aside id="offCanvasSide" class="mui-off-canvas-left">
-				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+	<body>
+		<!-- 主界面不动、菜单移动 -->
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-slide-in">
+			<!-- 菜单容器 -->
+			<aside class="mui-off-canvas-left" id="offCanvasSide">
+				<div class="mui-scroll-wrapper">
 					<div class="mui-scroll">
-						<div class="title">侧滑导航</div>
-						<div class="content">
-
-							<div class="touxiang" style="width: 30%;padding-left: 5%;position: relative;"><img src="img/avatar0.jpg">
-								<span id="nickname" style="color: whitesmoke;position: absolute;right: -190%;z-index: 99;bottom: 5%;">Rhaast</span></div>
-							<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
-								<li class="mui-table-view-cell">
-									<a class="mui-navigate-right" href="person.html">
-										<img src="img/person.png" class="menuicon" />个人主页
-									</a>
-								</li>
-								<li class="mui-table-view-cell">
-									<a class="mui-navigate-right" href="addNote.html">
-										<img src="img/message.png" class="menuicon" />发笔记
-									</a>
-								</li>
-								<li class="mui-table-view-cell">
-									<a class="mui-navigate-right">
-										<img src="img/message.png" class="menuicon" />提问题
-									</a>
-								</li>
-								<li class="mui-table-view-cell">
-									<a class="mui-navigate-right">
-										<img src="img/message.png" class="menuicon" />消息
-									</a>
-								</li>
-								<li class="mui-table-view-cell">
-									<a class="mui-navigate-right" href="login.html">
-										<img src="img/person_back.png" class="menuicon" />切换账号
-									</a>
-								</li>
-							</ul>
-						</div>
-						<!--<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>-->
-
+						<!-- 菜单具体展示内容 -->
+						<div class="touxiang" style="width: 30%;padding-left: 5%;position: relative;"><img style="width: 130%;margin-top: 15%;" src="img/avatar0.jpg">
+							<span id="nickname" style="color: whitesmoke;position: absolute;right: -190%;z-index: 99;bottom: 5%;">Rhaast</span></div>
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="person.html">
+									<img src="img/person.png" class="menuicon" />个人主页
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="addNote.html">
+									<img src="img/message.png" class="menuicon" />发笔记
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="addQues.html">
+									<img src="img/message.png" class="menuicon" />提问题
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">
+									<img src="img/message.png" class="menuicon" />消息
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="login.html">
+									<img src="img/person_back.png" class="menuicon" />切换账号
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</aside>
-			<!--主界面部分-->
-
+			<!-- 主页面容器 -->
 			<div class="mui-inner-wrap">
-
+				<!-- 主页面标题 -->
 				<header class="mui-bar mui-bar-nav">
-					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"><img src="img/index_aside.png"></a>
-					<a class="mui-action-back mui-btn mui-btn-link mui-pull-right">关闭</a>
-					<h1 class="mui-title">Home</h1>
+					<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" href="#offCanvasSide"></a>
+					<h1 class="mui-title">S_coder</h1>
 				</header>
-				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
-					<div id="pullrefresh" class="mui-content">
 
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!-- 主界面具体展示内容 -->
+						<!--banner-->
 						<div id="slider" class="mui-slider">
 							<div class="mui-slider-group mui-slider-loop">
 								<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 								<div class="mui-slider-item mui-slider-item-duplicate">
 									<a href="#">
-										<img src="img/yuantiao.jpg">
+										<img src="img/banner1.jpg">
 									</a>
 								</div>
 								<!-- 第一张 -->
 								<div class="mui-slider-item">
 									<a href="#">
-										<img src="img/shuijiao.jpg">
+										<img src="img/banner2.jpg">
 									</a>
 								</div>
 								<!-- 第二张 -->
 								<div class="mui-slider-item">
 									<a href="#">
-										<img src="img/muwu.jpg">
+										<img src="img/banner3.jpg">
 									</a>
 								</div>
 								<!-- 第三张 -->
@@ -241,40 +118,24 @@
 							</div>
 
 						</div>
+						<!--banner-->
 
 						<!--数据列表-->
 						<div id="indexContent">
 
 						</div>
-
 					</div>
-					<div class="mui-off-canvas-backdrop"></div>
 				</div>
+				<div class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
-		<!--		</div>-->
-
-		<!--<div id="tabbar-with-chat" class="mui-control-content">
-			<div class="title">这是div模式选项卡中的第2个子页面，该页面展示一个消息列表</div>
-
-		</div>
-		<div id="tabbar-with-contact" class="mui-control-content">
-
-		</div>-->
-
 	</body>
-
-	<script type="text/javascript" src="js/mui.min.js"></script>
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="js/common.js"></script>
 	<script>
 		mui.plusReady(function() {
 			ifLogin();
 			getName();
+			getIndexContent();
 		});
-		$(function() {
-			//getIndexContent();
-		})
 
 		function getName() {
 			var nickname = localStorage.getItem("nickName");
@@ -285,7 +146,7 @@
 
 		function getIndexContent() {
 			var now = new Date();
-
+			$("#indexContent").html("");
 			var mineUrl = "http://112.74.187.146:8080/studyapp/note/findAll";
 			$.get(mineUrl, function(result) {
 				var str = "";
@@ -325,48 +186,18 @@
 		mui.init({
 			pullRefresh: {
 				container: '#pullrefresh',
-				up: {
-					contentrefresh: '正在加载...',
-					callback: pullupRefresh
+				down: {
+					style: 'circle', //必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+					color: '#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+					height: '50px', //可选,默认50px.下拉刷新控件的高度,
+					range: '100px', //可选 默认100px,控件可下拉拖拽的范围
+					offset: '0px', //可选 默认0px,下拉刷新控件的起始位置
+					auto: true, //可选,默认false.首次加载自动上拉刷新一次
+					callback: getIndexContent //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
 				}
 			}
 		});
-		/**
-		 * 下拉刷新具体业务实现
-		 */
-		function pulldownRefresh() {
-			setTimeout(function() {
-				//					var table = document.body.querySelector('.mui-table-view');
-				//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-				//					for (var i = cells.length, len = i + 3; i < len; i++) {
-				//						var li = document.createElement('li');
-				//						li.className = 'mui-table-view-cell';
-				//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-				//						//下拉刷新，新纪录插到最前面；
-				//						table.insertBefore(li, table.firstChild);
-				//					}
 
-				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-			}, 1500);
-		}
-		var count = 0;
-		/**
-		 * 上拉加载具体业务实现
-		 */
-		function pullupRefresh() {
-			setTimeout(function() {
-				mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
-				getIndexContent();
-				//					var table = document.body.querySelector('.mui-table-view');
-				//					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-				//					for (var i = cells.length, len = i + 20; i < len; i++) {
-				//						var li = document.createElement('li');
-				//						li.className = 'mui-table-view-cell';
-				//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-				//						table.appendChild(li);
-				//					}
-			}, 1500);
-		}
 		if (mui.os.plus) {
 			mui.plusReady(function() {
 				setTimeout(function() {
@@ -380,12 +211,36 @@
 			});
 		}
 
-		(function($) {
-			$(".mui-scroll-wrapper").scroll({
-				//bounce: false,//滚动条是否有弹力默认是true
-				//indicators: false, //是否显示滚动条,默认是true
+		//		(function($) {
+		//			$(".mui-scroll-wrapper").scroll({
+		//				//bounce: false,//滚动条是否有弹力默认是true
+		//				//indicators: false, //是否显示滚动条,默认是true
+		//			});
+		//		})(mui);
+
+		mui('body').on('tap', 'a', function() {
+			var id = this.getAttribute('href');
+			var webview_style = {
+				popGesture: "close"
+			};
+
+			mui.openWindow({
+				id: id,
+				url: this.href,
+				styles: webview_style,
+				show: {
+					aniShow: true,
+					aniShow:"slide-in-right",//页面显示动画，默认为”slide-in-right“；
+      				duration:200
+				},
+				waiting: {
+					autoShow: true,   
+        			title: '正在加载...'
+				}
 			});
-		})(mui);
+		})
+		
+		mui("#pullrefresh").scroll();
 	</script>
 
 </html>

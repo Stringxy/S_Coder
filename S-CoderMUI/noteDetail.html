@@ -103,8 +103,13 @@
 			}
 			
 			function commit(){
+				var comment=$("#comment").val();
+				if(comment==undefined||comment==""||comment==null){
+					mui.alert("评论内容不能为空！");
+					return;
+				}
 				var param={"commentUser": localStorage.getItem("userId"),
-							"content": $("#comment").val(),
+							"content": ,
 							"noteId": id,
 							"userName": localStorage.getItem("nickName")};
 				var url="http://112.74.187.146:8080/studyapp/comment/add";

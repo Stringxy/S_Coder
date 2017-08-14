@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;" />
+		<title>person</title>
+
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/noteDetail.css" />
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+
+
+	</head>
+
+	<body>
+		<div id="person">
+			<div class="header">
+				<img src="img/detail_bg.jpg" />
+				<div class="cover"><img src="img/detail_bg.jpg" /></div>
+				<div class="back" onclick="mui.back()"><img src="img/person_back.png"></div>
+				<h1 class="h1"></h1>
+				
+			</div>
+			<div class="main">
+				<div class="note">
+					<div class="note_title"></div>
+					<div class="note_content">
+
+					</div>
+					<div class="note_bottom"><span id="time"></span><span id="commentNum"></span>
+						<hr />
+					</div>
+
+				</div>
+
+			</div>
+			<div id="comments">
+
+			</div>
+			
+		</div>
+	<nav class="mui-bar mui-bar-tab">
+		<div class="mui-input-row" style="margin-top: 1%;">
+		<input id="comment" style="width: 80%;" type="text" class="mui-input" >
+			<button class="mui-btn-green" onclick="commit()">
+				回复
+			</button>
+			</div>
+		</nav>
+		<script type="text/javascript">
+			var id;
+			var userId;
+					mui.plusReady(function() {
+							ifLogin();
+							
+						});
+			$(function() {
+					id = getUrlParam('id');
+					getDetail();
+				})
+				//取得自己的笔记
+			function getDetail() {
+				
+
+				
+				var now = new Date();
+				var mineUrl = "http://112.74.187.146:8080/studyapp/note/findById/" + id;
+				$.get(mineUrl, function(result) {
+					userId = result.detail.note.id;
+					$(".h1").html("by &nbsp"+result.detail.note.userName);
+					var str = "";
+					var createTime = new Date(result.detail.note.createTime);
+					var diffTime = (now - createTime) / (1000 * 60);
+					if (diffTime <= 3) {
+						createTime = "刚刚";
+					} else if (diffTime > 3 && diffTime < 10) {
+						createTime = "三分钟前";
+					} else {
+						createTime = createTime.getFullYear() + "年" + (createTime.getMonth() + 1) + "月" + createTime.getDate() + "日";
+					}
+					$(".note_title").html(result.detail.note.title);
+					$(".note_content").html(result.detail.note.content);
+					$("#time").html("发布时间：" + createTime);
+					$("#commentNum").html("评论：" + result.detail.note.commentNum + "条");
+					
+
+					if (result.detail.comment.length > 0) {
+						var str="";
+						for(var i=0;i<result.detail.comment.length;i++){
+							str+="<div class='com'><div class='comContent'>"+result.detail.comment[i].content+"</div><div class='comBottom'>"+result.detail.comment[i].userName+"</div></div>"
+						}
+						$("#comments").html(str);
+					} else {
+						$("#comments").html("<h4>暂时没有评论哦！快来抢沙发~</h4>");
+					}
+				})
+			}
+			
+			function commit(){
+				var comment=$("#comment").val();
+				if(comment==undefined||comment==""||comment==null){
+					mui.alert("评论内容不能为空！");
+					return;
+				}
+				var param={"commentUser": localStorage.getItem("userId"),
+							"content": comment,
+							"noteId": id,
+							"userName": localStorage.getItem("nickName")};
+				var url="http://112.74.187.146:8080/studyapp/comment/add";
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: JSON.stringify(param),
+					dataType: "json",
+					contentType: "application/json",
+					success: function(result) {
+						if(result.result == 200) {
+							mui.alert('回复成功！', 'S_Coder', function() {
+								 location.reload();
+							});
+
+						} else {
+							mui.alert("网络错误！");
+						}
+					}
+					})
+			}
+		</script>
+	</body>
+
+</html>

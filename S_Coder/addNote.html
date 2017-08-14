@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>addNote</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 22%;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			.mui-icon-back:before, .mui-icon-left-nav:before{content: none;}
+			.back{width: 16px;}
+			.mui-bar-nav{box-shadow: none;}
+			.mui-bar{background-color:#FFFFFF;height: 48px;}
+			.mui-content{background-color: #FFFFFF;}
+			.mui-title{line-height: 48px;font-size: 18px;font-weight: 600;}
+			.mui-bar .mui-icon{padding-top:14px;padding-bottom:14px;}
+			#title{margin-top: 5%;border:none;border-radius:initial;border-bottom: 2px solid;width: 94%;margin-left: 3%;padding: 0;font-size: 14px;padding-top: 12px;}
+			#textarea{border: none;border-radius: 3px;border: 2px solid;width:94%;margin: 0 auto;margin-top: 3%;margin-left: 3%;padding: 2px;height: 200px;}
+			.mui-input{margin-top: 7%;}
+			.mui-btn-blue, .mui-btn-primary, input[type=submit]{border: 2px solid #000000;background-color: #5272F9;height: 40px;width: 80%;border-radius: 30px;margin: 0 auto;margin-top: 10%;left: -23%;}
+		</style>
+	</head>
+
+	<body style="background-color: #FFFFFF;">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"><img src="img/person_back.png" class="back"></a>
+			<h1 class="mui-title">Issue</h1>
+		</header>
+		<div class="mui-content">
+
+			<div class="mui-input" style="margin-top: 6%;">
+				<label style="margin-left: 3%;font-size: 16px;">Title</label>
+				<input id='title' type="text" class="mui-input-clear mui-input" placeholder="请输入标题">
+			</div>
+			<div class="mui-input">
+				<label style="margin-left: 3% ;font-size: 16px;">Conent</label>
+				<textarea id="textarea" rows="5" class="mui-input mui-input-clear" placeholder="请输入内容" style="font-size: 14px;"></textarea>
+			</div>
+
+			<div style="padding-left: 40%;">
+				<button class="mui-btn-primary">发布</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/app.js"></script>
+<script type="text/javascript" src="js/common.js" ></script>
+		<script>
+			
+
+			mui('body').on('tap', 'button', function() {
+				ifLogin();
+				var userId = localStorage.getItem("userId");
+				var userName=localStorage.getItem("nickName");
+				var title = $("#title").val().trim();
+				var textarea = $("#textarea").val().trim();
+				if(!title || title == '') {
+					mui.alert("题目不允许为空");
+					return;
+				}
+				if(!textarea || textarea == '') {
+					mui.alert("笔记内容不允许为空");
+					return;
+				} else if(textarea.length < 10) {
+					mui.alert("笔记内容不允许小于10个字");
+					return;
+				}
+				var loginUrl = "http://112.74.187.146:8080/studyapp/note/add";
+				var jsonObj = {
+					"content": textarea,
+					"title": title,
+					"userId": userId,
+					"userName": userName
+				};
+				$.ajax({
+					type: "POST",
+					url: loginUrl,
+					data: JSON.stringify(jsonObj),
+					dataType: "json",
+					contentType: "application/json",
+					success: function(result) {
+
+						if(result.result == 200) {
+							mui.alert('发布成功！', 'S_Coder', function() {
+								//var id = this.getAttribute('href');
+								var webview_style = {
+									popGesture: "close"
+								};
+								mui.openWindow({
+									id: "mynotes",
+									url: "mynotes.html",
+									styles: webview_style,
+									show: {
+										aniShow: true
+									},
+									waiting: {
+										autoShow: true
+									}
+								});
+							});
+
+						} else {
+							mui.alert("网络错误！");
+						}
+					}
+					})
+
+			})
+		</script>
+	</body>
+
+</html>

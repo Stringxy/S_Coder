@@ -73,6 +73,7 @@
 					localStorage.setItem("score", result.detail.score);
 					localStorage.setItem("portrait", result.detail.portrait);
 					localStorage.setItem("signCount", result.detail.signCount);
+					localStorage.setItem("getNew", result.detail.getNew);
 				} else {
 					mui.alert("网络错误！");
 				}

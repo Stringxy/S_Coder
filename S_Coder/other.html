@@ -45,13 +45,13 @@
 					<div class="r">
 						<img src="img/person_icons_note.png">
 						<p class="myNote">
-							<a href="mynotes.html">笔记</a>
+							<a  id="notea">笔记</a>
 						</p>
 					</div>
 					<div class="r">
 						<img src="img/person_icons_question.png">
 						<p class="myNote">
-							<a href="https://www.baidu.com/">提问</a>
+							<a id="quesa">提问</a>
 						</p>
 					</div>
 				</div>
@@ -76,6 +76,8 @@
 			var username;
 			//取得自己的笔记
 			function getMine() {
+				$("#notea").attr("href","mynotes.html?id="+id);
+				$("#quesa").attr("href","myquestions.html?id="+id);
 				var mineUrl = "http://112.74.187.146:8080/studyapp/user/findById/" + id;
 				$.get(mineUrl, function(result) {
 						var nickName =result.detail.nickName;

@@ -50,9 +50,9 @@
 				var nickName = localStorage.getItem("nickName");
 				var portrait = localStorage.getItem("portrait");
 				$(".h1").html(nickName);
-				$(".touxiang img").attr("src", portrait);
-				var userId = localStorage.getItem("userId");
-				var mineUrl = "http://112.74.187.146:8080/studyapp/note/findByUserId/" + userId;
+				$(".touxiang img").attr("src", "http://112.74.187.146:8080/img/"+portrait);
+				var userId =getUrlParam("id");
+				var mineUrl = "http://112.74.187.146:8080/studyapp/note/findByUserId/" + userId+"/0";
 				$.get(mineUrl, function(result) {
 					var str = "";
 					if (result.detail == null) {

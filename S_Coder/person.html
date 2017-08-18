@@ -132,13 +132,13 @@
 					<div class="r">
 						<img src="img/person_icons_note.png">
 						<p class="myNote">
-							<a href="mynotes.html">我的笔记</a>
+							<a href="mynotes.html" id="notea">我的笔记</a>
 						</p>
 					</div>
 					<div class="r">
 						<img src="img/person_icons_question.png">
 						<p class="myNote">
-							<a href="myquestions.html">我的提问</a>
+							<a href="myquestions.html" id="quesa">我的提问</a>
 						</p>
 					</div>
 				</div>
@@ -155,6 +155,7 @@
 //				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
 //
 //			});
+
 			mui.plusReady(function() { 
 				ifLogin();
 
@@ -171,11 +172,14 @@
 				var score = localStorage.getItem("score");
 				var level = localStorage.getItem("level");
 				var portrait = localStorage.getItem("portrait");
+				var id=localStorage.getItem("userId");
 				$(".h1").html(nickName);
 				$("#score").html(score);
 				$("#level").html(level);
 				$("#signCount").html(localStorage.getItem("signCount")+"天");
 				$(".user_pic img").attr("src", "http://112.74.187.146:8080/img/"+portrait);
+				$("#notea").attr("href","mynotes.html?id="+id);
+				$("#quesa").attr("href","myquestions.html?id="+id);
 			}
 			mui.init();
 			mui('body').on('tap', 'a', function() {

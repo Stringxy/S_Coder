@@ -50,7 +50,6 @@ function imagesAjax(src) {
 		success: function(result) {
 			if (result.result == 200) {
 				mui.alert('修改成功！', 'S_Coder', function() {
-					 location.reload();
 				});
 
 			} else {

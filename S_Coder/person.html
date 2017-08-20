@@ -32,12 +32,12 @@
 				<img src="img/bg_01.jpg" />
 				<div class="cover"><img src="img/person_cover.jpg" /></div>
 				<div class="back" onclick="mui.back()"><img src="img/person_back.png"></div>
-				<h1 class="h1"></h1>
-	<!--<p>请尽情吩咐妲己，主人……</p>-->
+				<a href="changenickname.html"><h1 class="h1"></h1></a>
+	            <a href="personsign.html"><h2 class="h2">我的岸，便是海么？</h2></a>
 <!--<button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#avatar-modal" style="margin: 10px;">
 				修改头像
 		</button>-->
-		<div class="user_pic" style="margin: 10px;"   data-toggle="modal" data-target="#avatar-modal" >
+		<div class="user_pic" style="margin: 10px;border: 2px solid #000000;"  data-toggle="modal" data-target="#avatar-modal">
 			<img src="img/person_touxiang.png"/>
 		</div>
 
@@ -169,11 +169,13 @@
 			//取得自己的笔记
 			function getMine() {
 				var nickName = localStorage.getItem("nickName");
+				var personSign = localStorage.getItem("personSign");
 				var score = localStorage.getItem("score");
 				var level = localStorage.getItem("level");
 				var portrait = localStorage.getItem("portrait");
 				var id=localStorage.getItem("userId");
 				$(".h1").html(nickName);
+				$(".h2").html(personSign);
 				$("#score").html(score);
 				$("#level").html(level);
 				$("#signCount").html(localStorage.getItem("signCount")+"天");

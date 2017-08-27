@@ -74,6 +74,7 @@
 					localStorage.setItem("portrait", result.detail.portrait);
 					localStorage.setItem("signCount", result.detail.signCount);
 					localStorage.setItem("getNew", result.detail.getNew);
+					localStorage.setItem("personSign", result.detail.personSign);
 				} else {
 					mui.alert("网络错误！");
 				}
